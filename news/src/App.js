@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import {Route} from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+import FrontPage from './FrontPage';
 
-function App() {
+const App = () => {
+const [apiKey, setApiKey] = useState('d5e8a3e5134a4319825a31506d505c31');
+
+  useEffect(() => {
+    
+    axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+              <Route exact path='/' render={(props) => { return <FrontPage {...props} />}} />
     </div>
   );
 }
