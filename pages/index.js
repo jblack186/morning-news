@@ -6,12 +6,25 @@ import { Component } from "react";
 
 const Index = () =>( 
   <Layout>
-    <Link href='/about'>
+    <div className='home-container'>
+    {/* <Link href='/about'>
       <a>Go to about</a>
-    </Link>
+    </Link> */}
+    {/* <div>
+      <h1>Home</h1>
+      <p>Welcome</p>
+    </div> */}
+    <style jsx>{`
+      .home-container {
+        min-height: 90vh;
+        height: 100%;
+        background-color: whitesmoke;
+      }
+    
+  `}</style>
 
-    <h1>Home</h1>
-    <p>Welcome</p>
+    </div>
   </Layout>
+    
 )
 export default Index;
