@@ -4,13 +4,13 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import {faFacebookF, faInstagram, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 
 export default ({children, title}) => (
   <div>
     <Head>
-      <title></title>
+      <title>TechyNews</title>
     </Head>
     <header>
         <div className='site-name'>
@@ -23,19 +23,24 @@ export default ({children, title}) => (
           <FontAwesomeIcon icon={faYoutube} />
         </div>
         <nav>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-          <Link href="/hireme">
-            <a>Hire Me</a>
-          </Link>
-          <Link href="/blog">
-            <a>Blog</a>
-          </Link>
-        </nav>
+          <div className='nav-container'>
+            <a className='search'>
+              <FontAwesomeIcon icon={faSearch} />
+            </a>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
+            <Link href="/hireme">
+              <a>Hire Me</a>
+            </Link>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
+            </div>
+          </nav>
       </header>
      {/* <h1>{title}</h1> */}
       {children}
@@ -77,10 +82,31 @@ export default ({children, title}) => (
     top: 79%;
     left: 50%;
     margin-left: -40%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+  }
+
+  .nav-container {
+    height: 40px;
+    align-items: center;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  nav .search {
+    height: 35px;
+    width: 50px;
+    margin-left: 15px;
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
   nav a {
@@ -88,6 +114,11 @@ export default ({children, title}) => (
     text-decoration: none;
     color: black;
     font-weight: bold;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
 `}</style>
