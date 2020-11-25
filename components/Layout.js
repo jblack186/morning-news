@@ -13,34 +13,36 @@ export default ({children, title}) => (
       <title>TechyNews</title>
     </Head>
     <header>
-        <div className='site-name'>
-          <p>TechNews</p>
-        </div>
-        <div className='icons'>
-          <FontAwesomeIcon icon={faFacebookF} />
-          <FontAwesomeIcon icon={faInstagram} />
-          <FontAwesomeIcon icon={faTwitter} />
-          <FontAwesomeIcon icon={faYoutube} />
-        </div>
-        <nav>
-          <div className='nav-container'>
-            <a className='search'>
-              <FontAwesomeIcon icon={faSearch} />
-            </a>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            <Link href="/hireme">
-              <a>Hire Me</a>
-            </Link>
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
-            </div>
-          </nav>
+        <div className='head-container'>
+          <div className='site-name'>
+          <img className='logo' src="../static/logo.png" alt="logo" />
+          </div>
+          <div className='icons'>
+            <FontAwesomeIcon icon={faFacebookF} />
+            <FontAwesomeIcon icon={faInstagram} />
+            <FontAwesomeIcon icon={faTwitter} />
+            <FontAwesomeIcon icon={faYoutube} />
+          </div>
+            <nav>
+              <div className='nav-container'>
+                <a className='search'>
+                  <FontAwesomeIcon icon={faSearch} />
+                </a>
+                <Link href="/">
+                  <a>Home</a>
+                </Link>
+                <Link href="/about">
+                  <a>About</a>
+                </Link>
+                <Link href="/hireme">
+                  <a>Hire Me</a>
+                </Link>
+                <Link href="/blog">
+                <a>Blog</a>
+              </Link>
+              </div>
+            </nav>
+          </div>
       </header>
      {/* <h1>{title}</h1> */}
       {children}
@@ -51,16 +53,23 @@ export default ({children, title}) => (
     width: 100%;
     height: 10vh;
     background-color: #0d42a2;
+    position: relative;
+
+  }
+
+  .head-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    width: 82%;
+    margin: 0 auto;
+    padding-top: 5px;
   }
 
   header .site-name {
-    width: 10%;
+    width: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
 
@@ -70,7 +79,7 @@ export default ({children, title}) => (
     color: white;
     width: 15%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
   }
 
@@ -118,6 +127,10 @@ export default ({children, title}) => (
     display: flex;
     justify-content: center;
     align-items: center;
+
+  }
+
+  .logo {
 
   }
 

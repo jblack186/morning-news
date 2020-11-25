@@ -246,6 +246,11 @@ console.log('img',image[1])
         justify-content: space-between;
       }
 
+      .bottom-article p {
+        padding-left: 12px;
+
+      }
+
       .bottom-author {
         color: #0d42a2;
         font-size: 1rem;
