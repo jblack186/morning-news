@@ -6,8 +6,42 @@ import { Component, useState } from "react";
 
 export default function Index({news}) {
 
+ const image =  news.docs.map(art => {
+     if (art.multimedia[0]) {
+       
+      return art.multimedia[0].url }
+})
+
+const text =  news.docs.map(art => {
+  if (art.headline) {
+    
+   return art.headline.main }
+})
+
+const headline =  news.docs.map(art => {
+  if (art.headline) {
+    
+   return art.headline.main }
+})
+
+const author =  news.docs.map(art => {
+  if (art.byline) {
+    
+   return art.byline.original }
+})
+
+const snippet =  news.docs.map(art => {
+  if (art.snippet) {
+    
+   return art.snippet }
+})
+
+
+
+console.log(text)
 
 console.log('news', news)
+console.log('img',image[1])
     return (
   <Layout>
     <div className='home-container'>
@@ -20,31 +54,88 @@ console.log('news', news)
     </div> */}
     <section className='top-container'>
       <div className='editors-part'>
-        <h3 className='editors'>Editor's Pick</h3>
-        <p>hoewienw</p>
+      <h4 className='editor-pick'>Editor's Pick</h4>
+      <li>
+        <p>{text[4]}</p>
+        <p className='author'>{author[4]}</p>
+      </li>
+      <li>
+        <p>{text[5]}</p>
+        <p className='author'>{author[5]}</p>
+      </li>
+      <li>
+        <p>{text[6]}</p>
+        <p className='author'>{author[6]}</p>
+      </li>
+      <li>
+        <p>{text[7]}</p>
+        <p className='author'>{author[7]}</p>
+      </li>
+      <li>
+        <p>{text[3]}</p>
+        <p className='author'>{author[3]}</p>
+      </li>
+      <li>
+        <p>{text[3]}</p>
+        <p className='author'>{author[3]}</p>
+      </li>
+      <li>
+        <p>{text[3]}</p>
+        <p className='author last'>{author[3]}</p>
+      </li>
+
+
       </div>
       <div className='right-top-article'>
-        <div>img</div>
+      <div className='top-article'>
+        <div>
+          <h4>Top Story</h4>
+          <p>{text[3]}</p>
+          <p className='snippet'>{snippet[3]}</p>
+          <p className='snippet'>{author[3]}</p>
+        </div>
+          <img className='top-image' src={`https://static01.nyt.com/${image[3]}`} alt='top-article' />
+          </div>
+
         <div className='top-bottom-articles'>
-          <div>img</div>
-          <div>img</div>
+          <div className='bottom-article'>
+            <img className='top-image' src={`https://static01.nyt.com/${image[0]}`} alt='top-article' />
+            <p>{text[0]}</p>
+            <p className='bottom-author'>{author[0]}</p>
+
+          </div>
+          <div className='bottom-article'>
+          <img className='top-image' src={`https://static01.nyt.com/${image[5]}`} alt='top-article' />
+          <p>{text[5]}</p>
+          <p className='bottom-author'>{author[5]}</p>
+
+          </div>
         </div>
       </div>
     </section>
+    <img className='circles' src="/static/circles.png" alt="circles" width="100%" objectFit="cover" height="100px"/>
+    <section className='features'>
+      <h4>GEAR UP</h4>
+    </section>
     <style jsx>{`
+
+    .top-image {
+      width: 100px;
+    }
       .home-container {
-        min-height: 90vh;
+        min-height: 100vh;
         height: 100%;
         background-color: whitesmoke;
+        
       }
 
       .top-container {
         margin: 0 auto;
         padding-top: 100px;
-        width: 80%;
+        width: 82%;
         display: flex;
         justify-content: space-between;
-
+        height: 720px;
       }
 
       @media screen and (max-width: 1000px) {
@@ -54,11 +145,36 @@ console.log('news', news)
         }
       }
       
+      .editor-pick {
+        margin: 0;
+        color: #0d42a2;
+        font-size: 2rem;
+        font-weight: 800;
+     }
+
+     .editors-part li {
+       list-style: none;
+     }
+
+     .author {
+       font-size: .9rem;
+       color: #aaa;
+       border-bottom: 1px solid #aaa;
+       padding-bottom: 15px;
+     }
+
+     .author.last {
+       border: none;
+      padding-bottom: 0;
+
+     }
 
       .editors-part {
         width: 40%;
-        height: 500px;
-        border: solid black 1px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
       }
 
@@ -67,16 +183,94 @@ console.log('news', news)
       }
 
       .right-top-article {
-        width: 60%;
-        height: 500px;
-        border: solid black 1px;
+        width: 55%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
 
+      .top-article {
+        display: flex;
+        justify-content: space-between;
+        border: solid #aaa 2px;
+        margin-left: 12px;
+        height: 350px;
+
+      }
+
+      .top-article h4 {
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 20px;
+        color: #0d42a2;
+
+      }
+      
+      .top-article p {
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 10px;
+        
+      }
+
+      .top-article img {
+        width: 65%;
+        object-fit: cover;
+      }
+
+      .snippet {
+        color: #aaa;
+        font-size: 1rem;
+        font-weight: 200;
+        line-height: 20px;
       }
 
       .top-bottom-articles {
         display: flex;
+        margin-left: 12px;
+        justify-content: space-between;
       }
 
+      .top-bottom-articles img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .bottom-article {
+        width: 48%;
+        border: solid 2px #aaa;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .bottom-author {
+        color: #0d42a2;
+        font-size: 1rem;
+        font-weight: 200;
+
+      }
+
+      .circles {
+        object-fit: cover;
+        padding-top: 12px;
+      }
+
+      .features {
+        background: #000000;
+        height: 280px;
+        position: relative;
+        display: flex;
+      }
+
+      .features h4 {
+        color: white;
+        font-size: 2rem;
+        margin-left: 200px;
+        margin-top: 100px;
+      }
     
   `}</style>
 
@@ -86,10 +280,11 @@ console.log('news', news)
     )}
     
 
-    Index.getInitialProps = async () => {
+    Index.getInitialProps = async (ctx) => {
+      const {query} = ctx
       const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=tech&api-key=9cD9AxIl2LjbhsKBMQE11D1y5vAjuxzf&facet_fields=source&facet=true&begin_date=20200101&end_date=20200831
-      `);
+      ` );
       const data = await res.json();
       
-      return {news: data}
+      return {news: data.response}
     }

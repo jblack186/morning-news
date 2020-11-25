@@ -76,12 +76,12 @@ export default ({children, title}) => (
 
   nav {
     position: absolute;
-    height: 40px;
-    width: 80%;
+    height: 45px;
+    width: 82%;
     background-color: white;
-    top: 79%;
+    top: 76%;
     left: 50%;
-    margin-left: -40%;
+    margin-left: -41%;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5); 
     display: flex;
     align-items: center;
@@ -124,9 +124,13 @@ export default ({children, title}) => (
 `}</style>
     <style global jsx>{`
       body {
+        font-family: 'Libre Baskerville', serif;
         margin: 0;
         font-size: 110%;
-  
+      }
+
+      p {
+        font-weight: 800;
       }
     `}</style>
 
