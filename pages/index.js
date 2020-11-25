@@ -88,11 +88,11 @@ console.log('img',image[1])
       </div>
       <div className='right-top-article'>
       <div className='top-article'>
-        <div>
+        <div className='top-flex'>
           <h4>Top Story</h4>
           <p>{text[3]}</p>
           <p className='snippet'>{snippet[3]}</p>
-          <p className='snippet'>{author[3]}</p>
+          <p className='snippet by'>{author[3]}</p>
         </div>
           <img className='top-image' src={`https://static01.nyt.com/${image[3]}`} alt='top-article' />
           </div>
@@ -123,7 +123,6 @@ console.log('img',image[1])
       width: 100px;
     }
       .home-container {
-        min-height: 100vh;
         height: 100%;
         background-color: whitesmoke;
         
@@ -135,20 +134,32 @@ console.log('img',image[1])
         width: 82%;
         display: flex;
         justify-content: space-between;
-        height: 720px;
+        height: 820px;
       }
 
       @media screen and (max-width: 1000px) {
         .top-container {
+          height: 100%;
           display: flex;
           flex-direction: column;
         }
       }
+
+      .editors-part {
+        heigth: 90%;
+        width: 32%;
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-between;
+
+      }
+
+
       
       .editor-pick {
         margin: 0;
         color: #0d42a2;
-        font-size: 2rem;
+        font-size: 2.3rem;
         font-weight: 800;
      }
 
@@ -159,7 +170,7 @@ console.log('img',image[1])
      .author {
        font-size: .9rem;
        color: #aaa;
-       border-bottom: 1px solid #aaa;
+       border-bottom: 1px solid lightgray;
        padding-bottom: 15px;
      }
 
@@ -169,21 +180,12 @@ console.log('img',image[1])
 
      }
 
-      .editors-part {
-        width: 40%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-      }
-
       .editors {
         margin: 0;
       }
 
       .right-top-article {
-        width: 55%;
+        width: 65%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -192,15 +194,21 @@ console.log('img',image[1])
 
       .top-article {
         display: flex;
-        justify-content: space-between;
-        border: solid #aaa 2px;
+        border: solid lightgray 2px;
         margin-left: 12px;
         height: 350px;
+        background: whitesmoke;
 
       }
 
+      .top-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+
       .top-article h4 {
-        width: 70%;
+        width: 77%;
         margin: 0 auto;
         padding-top: 20px;
         color: #0d42a2;
@@ -208,9 +216,8 @@ console.log('img',image[1])
       }
       
       .top-article p {
-        width: 70%;
+        width: 77%;
         margin: 0 auto;
-        padding-top: 10px;
         
       }
 
@@ -226,21 +233,28 @@ console.log('img',image[1])
         line-height: 20px;
       }
 
+      .snippet.by {
+        color: #0d42a2;
+
+      }
+
+
       .top-bottom-articles {
         display: flex;
         margin-left: 12px;
         justify-content: space-between;
+
       }
 
       .top-bottom-articles img {
         width: 100%;
-        height: 200px;
+        height: 300px;
         object-fit: cover;
       }
 
       .bottom-article {
         width: 48%;
-        border: solid 2px #aaa;
+        border: solid 2px lightgray;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -248,19 +262,18 @@ console.log('img',image[1])
 
       .bottom-article p {
         padding-left: 12px;
-
+        height: 35px
       }
 
       .bottom-author {
         color: #0d42a2;
         font-size: 1rem;
         font-weight: 200;
-
       }
 
       .circles {
         object-fit: cover;
-        padding-top: 12px;
+        padding-top: 22px;
       }
 
       .features {

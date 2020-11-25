@@ -63,7 +63,7 @@ export default ({children, title}) => (
     align-items: center;
     width: 82%;
     margin: 0 auto;
-    padding-top: 5px;
+    padding-top: 15px;
   }
 
   header .site-name {
