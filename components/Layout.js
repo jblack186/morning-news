@@ -46,7 +46,30 @@ export default ({children, title}) => (
       </header>
      {/* <h1>{title}</h1> */}
       {children}
-    {/* <footer>footer</footer> */}
+    <footer>
+    <section className='footer-container'>
+      <div className='footer-left'>
+          <Link href="/">
+              <a>Home</a>
+          </Link>
+          <Link href="/about">
+              <a>About</a>
+          </Link>
+          <Link href="/hireme">
+            <a>Hire Me</a>
+          </Link>
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+      </div>
+      <div className='footer-right'>
+          <img className='footer-logo' src="../static/logo.png" alt="logo" />
+<p>@ Copyright - 2020</p>
+      </div>
+
+              </section>
+
+    </footer>
     <style jsx>{`
   
   header {
@@ -133,6 +156,52 @@ export default ({children, title}) => (
   .logo {
 
   }
+
+  footer {
+    background: #0d42a2;
+    color: #d1d1d1;
+    font-size: 1rem;
+    font-weight: 200;
+
+  }
+
+  .footer-container {
+    height: 200px;
+    background: #0d42a2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .footer-left {
+    display: flex;
+    width: 300px;
+    justify-content: space-around;
+
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .footer-right img {
+    width: 200px;
+    object-fit: contain;
+  }
+
+
+  .footer-container a {
+    text-decoration: none;
+    font-weight: 200;
+    color: #d1d1d1;
+
+  }
+
+
 
 `}</style>
     <style global jsx>{`
