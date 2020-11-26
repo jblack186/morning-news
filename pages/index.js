@@ -5,7 +5,6 @@ import { Component, useState } from "react";
 
 
 export default function Index({news}) {
-
  const image =  news.docs.map(art => {
      if (art.multimedia[0]) {
        
@@ -38,7 +37,7 @@ const snippet =  news.docs.map(art => {
 
 
 
-console.log(text)
+// console.log('gear',gear)
 
 console.log('news', news)
 console.log('img',image[1])
@@ -56,32 +55,20 @@ console.log('img',image[1])
       <div className='editors-part'>
       <h4 className='editor-pick'>Editor's Pick</h4>
       <li>
-        <p>{text[4]}</p>
-        <p className='author'>{author[4]}</p>
+        <p>{text[0]}</p>
+        <p className='author'>{author[0]}</p>
       </li>
       <li>
-        <p>{text[5]}</p>
-        <p className='author'>{author[5]}</p>
+        <p>{text[1]}</p>
+        <p className='author'>{author[1]}</p>
       </li>
       <li>
-        <p>{text[6]}</p>
-        <p className='author'>{author[6]}</p>
-      </li>
-      <li>
-        <p>{text[7]}</p>
-        <p className='author'>{author[7]}</p>
+        <p>{text[2]}</p>
+        <p className='author'>{author[2]}</p>
       </li>
       <li>
         <p>{text[3]}</p>
         <p className='author'>{author[3]}</p>
-      </li>
-      <li>
-        <p>{text[3]}</p>
-        <p className='author'>{author[3]}</p>
-      </li>
-      <li>
-        <p>{text[3]}</p>
-        <p className='author last'>{author[3]}</p>
       </li>
 
 
@@ -90,24 +77,24 @@ console.log('img',image[1])
       <div className='top-article'>
         <div className='top-flex'>
           <h4>Top Story</h4>
-          <p>{text[3]}</p>
-          <p className='snippet'>{snippet[3]}</p>
-          <p className='snippet by'>{author[3]}</p>
+          <p>{text[4]}</p>
+          <p className='snippet'>{snippet[4]}</p>
+          <p className='snippet by'>{author[4]}</p>
         </div>
-          <img className='top-image' src={`https://static01.nyt.com/${image[3]}`} alt='top-article' />
+          <img className='top-image' src={`https://static01.nyt.com/${image[4]}`} alt='top-article' />
           </div>
 
         <div className='top-bottom-articles'>
           <div className='bottom-article'>
-            <img className='top-image' src={`https://static01.nyt.com/${image[0]}`} alt='top-article' />
-            <p>{text[0]}</p>
-            <p className='bottom-author'>{author[0]}</p>
+            <img className='top-image' src={`https://static01.nyt.com/${image[5]}`} alt='top-article' />
+            <p>{text[5]}</p>
+            <p className='bottom-author'>{author[5]}</p>
 
           </div>
           <div className='bottom-article'>
-          <img className='top-image' src={`https://static01.nyt.com/${image[5]}`} alt='top-article' />
-          <p>{text[5]}</p>
-          <p className='bottom-author'>{author[5]}</p>
+          <img className='top-image' src={`https://static01.nyt.com/${image[6]}`} alt='top-article' />
+          <p>{text[6]}</p>
+          <p className='bottom-author'>{author[6]}</p>
 
           </div>
         </div>
@@ -115,8 +102,62 @@ console.log('img',image[1])
     </section>
     <img className='circles' src="/static/circles.png" alt="circles" width="100%" objectFit="cover" height="100px"/>
     <section className='features'>
-      <h4>GEAR UP</h4>
+      <h4>GEAR UP WITH SOME TECH</h4>
+      <div className='top-line'></div>
+
+      <div className='bottom-line'></div>
+      <div className='gear'>
+        <div className='gear-article'>
+            <img className='gear-image' src={`https://static01.nyt.com/${image[7]}`} alt='mid-article' />
+            
+            <div className='gear-text'>
+              <div className='text-container'>
+                <p className='feat-tag'>Featured</p>
+                <p className='text'>{text[7]}</p>
+                <p className='gear-author'>{author[7]}</p>
+              </div>
+            </div>
+        </div>
+        <div className='gear-article'>
+            <img className='gear-image' src={`https://static01.nyt.com/${image[8]}`} alt='mid-article' />
+            
+            <div className='gear-text'>
+              <div className='text-container'>
+                <p className='feat-tag'>Featured</p>
+                <p className='text'>{text[8]}</p>
+                <p className='gear-author'>{author[8]}</p>
+              </div>
+            </div>
+        </div>
+        <div className='gear-article'>
+            <img className='gear-image' src={`https://static01.nyt.com/${image[9]}`} alt='mid-article' />
+            <div className='gear-text'>
+              <div className='text-container'>
+                <p className='feat-tag'>Featured</p>
+                <p className='text'>{text[9]}</p>
+                <p className='gear-author'>{author[9]}</p>
+              </div>
+            </div>
+        </div>
+        <div className='gear-article'>
+            <img className='gear-image' src={`https://static01.nyt.com/${image[9]}`} alt='mid-article' />
+            <div className='gear-text'>
+              <div className='text-container'>
+                <p className='feat-tag'>Featured</p>
+                <p className='text'>{text[9]}</p>
+                <p className='gear-author'>{author[9]}</p>
+              </div>
+            </div>
+        </div>
+
+      </div>
     </section>
+    
+    <section className='trending-container'>
+      {/* <h3>Trending in Tech </h3> */}
+    </section>
+    <img className='circles' src="/static/circles2.png" alt="circles" width="100%" objectFit="cover" height="100px"/>
+
     <style jsx>{`
 
     .top-image {
@@ -135,6 +176,7 @@ console.log('img',image[1])
         display: flex;
         justify-content: space-between;
         height: 820px;
+        padding-bottom: 100px;
       }
 
       @media screen and (max-width: 1000px) {
@@ -190,6 +232,8 @@ console.log('img',image[1])
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        flex-wrap: wrap;
+
       }
 
       .top-article {
@@ -243,6 +287,7 @@ console.log('img',image[1])
         display: flex;
         margin-left: 12px;
         justify-content: space-between;
+        flex-wrap: wrap;
 
       }
 
@@ -273,14 +318,16 @@ console.log('img',image[1])
 
       .circles {
         object-fit: cover;
-        padding-top: 22px;
+       
       }
 
       .features {
-        background: #000000;
+        background: #006666;
         height: 280px;
+        width: 100%;
         position: relative;
         display: flex;
+        
       }
 
       .features h4 {
@@ -289,6 +336,108 @@ console.log('img',image[1])
         margin-left: 200px;
         margin-top: 100px;
       }
+      
+
+      .gear {
+        position: absolute;
+        top: 180px;
+        width: 100%;
+        // height: 250px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        
+      }
+
+      .gear p {
+        color: white;
+      }
+
+      .gear-article {
+        // height: 420px;
+        width: 250px;
+        background: whitesmoke;
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      .gear img {
+        width: 250px;
+        heigth: 380px
+        object-fit: cover;
+        border-left: white solid 2px;
+        border-top: white solid 2px;
+        border-right: white solid 2px;
+
+      }
+
+      .gear-text {
+        background: whitesmoke;
+        height: 200px;
+        width: 250px;
+        border-left: lightgray solid 2px;
+        border-bottom: lightgray solid 2px;
+        border-right: lightgray solid 2px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+      }
+
+      .top-line {
+        position: absolute;
+        height: 80px;
+        right: 50%;
+        top: 0;
+
+        border: 1px solid white;
+      }
+
+
+      .bottom-line {
+        position: absolute;
+        height: 80px;
+        right: 50%;
+        bottom: 0;
+
+        border: 1px solid white;
+      }
+
+      .text-container {
+        width: 70%;
+        margin: 0 auto;
+      }
+
+      .gear-text p.feat-tag {
+        color: #0d42a2;
+        margin: 0;
+        padding-top: 10px;
+      }
+
+      .gear-text p {
+        color: black;
+
+      }
+
+
+
+      .gear-text p.gear-author {
+        color: #aaa;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+
+      .trending-container {
+        height: 400px;
+        background: white;
+      }
+
+      .text {
+        height: 70px;
+      }
+
     
   `}</style>
 
@@ -300,9 +449,12 @@ console.log('img',image[1])
 
     Index.getInitialProps = async (ctx) => {
       const {query} = ctx
-      const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=tech&api-key=9cD9AxIl2LjbhsKBMQE11D1y5vAjuxzf&facet_fields=source&facet=true&begin_date=20200101&end_date=20200831
+      const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=technology&api-key=9cD9AxIl2LjbhsKBMQE11D1y5vAjuxzf&facet_fields=source&facet=true&begin_date=20200101&end_date=20200831
       ` );
       const data = await res.json();
-      
+
       return {news: data.response}
-    }
+    
+
+
+  }

@@ -16,10 +16,8 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css"
           />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto"
-            rel="stylesheet"
-          />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@600&display=swap" rel="stylesheet" />          
         </Head>
         <body>
           <Main />
@@ -27,7 +25,8 @@ export default class MyDocument extends Document {
         </body>
         <style global jsx>{`
           body {
-            font-family: "Roboto", sans-serif;
+            font-family: 'Merriweather Sans', sans-serif;
+
           }
         `}</style>
       </html>
