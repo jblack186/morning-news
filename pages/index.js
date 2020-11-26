@@ -421,9 +421,6 @@ console.log('img',image[1])
 
       }
 
-      .gear-para {
-
-      }
 
 
       .gear-text p.gear-author {
