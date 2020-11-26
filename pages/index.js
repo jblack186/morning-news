@@ -103,6 +103,9 @@ console.log('img',image[1])
     <img className='circles' src="/static/circles.png" alt="circles" width="100%" objectFit="cover" height="100px"/>
     <section className='features'>
       <h4>GEAR UP WITH SOME TECH</h4>
+      <div className='top-line'></div>
+
+      <div className='bottom-line'></div>
       <div className='gear'>
         <div className='gear-article'>
             <img className='gear-image' src={`https://static01.nyt.com/${image[7]}`} alt='mid-article' />
@@ -381,6 +384,25 @@ console.log('img',image[1])
         flex-direction: column;
         justify-content: space-between;
 
+      }
+
+      .top-line {
+        position: absolute;
+        height: 80px;
+        right: 50%;
+        top: 0;
+
+        border: 1px solid white;
+      }
+
+
+      .bottom-line {
+        position: absolute;
+        height: 80px;
+        right: 50%;
+        bottom: 0;
+
+        border: 1px solid white;
       }
 
       .text-container {

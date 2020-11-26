@@ -198,7 +198,6 @@ export default ({children, title}) => (
     text-decoration: none;
     font-weight: 200;
     color: #d1d1d1;
-
   }
 
 
