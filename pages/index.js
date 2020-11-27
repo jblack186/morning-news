@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import fetch from 'isomorphic-unfetch';
-import { Component, useState } from "react";
+import { Component, useState, useEffect } from "react";
 
 
 export default function Index({news}) {
+
+  
  const image =  news.docs.map(art => {
      if (art.multimedia[0]) {
        
@@ -35,9 +37,6 @@ const snippet =  news.docs.map(art => {
    return art.snippet }
 })
 
-
-
-// console.log('gear',gear)
 
 console.log('news', news)
 console.log('img',image[1])
@@ -140,12 +139,12 @@ console.log('img',image[1])
             </div>
         </div>
         <div className='gear-article'>
-            <img className='gear-image' src={`https://static01.nyt.com/${image[9]}`} alt='mid-article' />
+            <img className='gear-image' src={`https://static01.nyt.com/${image[0]}`} alt='mid-article' />
             <div className='gear-text'>
               <div className='text-container'>
                 <p className='feat-tag'>Featured</p>
-                <p className='text'>{text[9]}</p>
-                <p className='gear-author'>{author[9]}</p>
+                <p className='text'>{text[0]}</p>
+                <p className='gear-author'>{author[0]}</p>
               </div>
             </div>
         </div>
@@ -392,7 +391,7 @@ console.log('img',image[1])
         right: 50%;
         top: 0;
 
-        border: 1px solid white;
+        border: 1px solid #aaa;
       }
 
 
@@ -402,7 +401,7 @@ console.log('img',image[1])
         right: 50%;
         bottom: 0;
 
-        border: 1px solid white;
+        border: 1px solid #aaa;
       }
 
       .text-container {

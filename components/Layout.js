@@ -2,13 +2,42 @@ import Link from 'next/link';
 import Head from "next/head";
 import Router from "next/router";
 import NProgress from "nprogress";
+import { Component, useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import {faFacebookF, faInstagram, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { motion, useViewportScroll } from "framer-motion"
 
-export default ({children, title}) => (
+
+export default function Layout ({children, title})  {
+  const [lastYPos, setLastYPos] = useState(0);
+  const [popOut, setPopOut] = useState(false);
+
+  const [shouldShowActions, setShouldShowActions] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      const yPos = window.scrollY;
+      console.log(yPos)
+      if(yPos > 120) {
+        setPopOut(true)
+      } else {
+        setPopOut(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, false);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll, false);
+    };
+  }, [popOut]);
+  console.log(popOut)
+
+return (
   <div>
+
     <Head>
       <title>TechyNews</title>
     </Head>
@@ -23,7 +52,7 @@ export default ({children, title}) => (
             <FontAwesomeIcon icon={faTwitter} />
             <FontAwesomeIcon icon={faYoutube} />
           </div>
-            <nav>
+            <nav className={popOut === false ? 'nav-one' : 'nav-two'}>
               <div className='nav-container'>
                 <a className='search'>
                   <FontAwesomeIcon icon={faSearch} />
@@ -96,29 +125,57 @@ export default ({children, title}) => (
     align-items: center;
   }
 
+  header .site-name img{
+    object-fit: cover;
+    width: 200px;
+  }
+
   header .icons{
     margin: 0;
     padding: 0;
-    color: white;
+    color: #aaa;
     width: 15%;
     display: flex;
     justify-content: space-between;
 
   }
 
-  nav {
+  .nav-one {
     position: absolute;
-    height: 45px;
+    height: 55px;
     width: 82%;
     background-color: white;
-    top: 76%;
+    top: 70%;
     left: 50%;
     margin-left: -41%;
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5); 
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.3); 
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
+  }
+
+
+
+  .nav-two {
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    top: 0%;
+    box-shadow: 0px 0px 17px 0px rgba(0,0,0,0.3); 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 99999999;
+    animation: popOut .4s ease;
+  
+  }
+
+  @keyframes popOut {
+    from {height: 0px;}
+    to {height: 55px;}
   }
 
   .nav-container {
@@ -153,9 +210,7 @@ export default ({children, title}) => (
 
   }
 
-  .logo {
 
-  }
 
   footer {
     background: #0d42a2;
@@ -216,7 +271,7 @@ export default ({children, title}) => (
     `}</style>
 
   </div>
-
 )
+    }
 
 
